@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your 2026 Resolution | AI Resolution Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="result-container">
+            <div class="header">
+                <h1>🎉 Your Resolution is Ready!</h1>
+                <p>Here's what AI recommends for your amazing 2026</p>
+            </div>
+
+            <div class="result-card success-animation">
+                <div class="result-title">Your AI-Recommended Resolution for 2026</div>
+                <div class="result-text">{{ resolution }}</div>
+            </div>
+
+            <a href="/" class="back-btn">🔄 Create Another Resolution</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Add confetti effect on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultText = document.querySelector('.result-text');
+            if (resultText) {
+                // Animate text appearance
+                resultText.style.opacity = '0';
+                resultText.style.transform = 'scale(0.8)';
+                
+                setTimeout(() => {
+                    resultText.style.transition = 'all 0.8s ease-out';
+                    resultText.style.opacity = '1';
+                    resultText.style.transform = 'scale(1)';
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>
